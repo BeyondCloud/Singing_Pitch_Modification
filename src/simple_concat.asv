@@ -59,11 +59,7 @@ function simple_concat
         parameter.win = hann(round(44100*0.1));
         parameter.phaseLocking = 1;
         y = pvTSM(sig_mid',realExtL/length(sig_mid),parameter)';
-        disp(ii);
-        if length(sig_mid)>2205
-            y(1:2205) = sig_mid(1:2205)';
-        end
-         sig = [sample(offset:preutter)',y];
+         sig = [sample(offset:preutter)',y(sig_mid')];
 %         sig = linear_fade(sample(offset:preutter),y,2205/length(y));
         end
         %sig = linear_fade(sample(offset:preutter)',y,0.05);

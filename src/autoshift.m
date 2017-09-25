@@ -41,7 +41,9 @@ function [exchangetable,file_name,t_config, real_pitch] = autoshift(phoneme_stre
         end
         distance = pitch_pos-fund_tone;
         [~,source_choice] = min(abs(distance));
-            %% Choose the correct sound source
+        
+       
+        %% Choose the correct sound source
         target_alias = [phoneme_stream{ii},'_',fund_tonename{source_choice(1)}];
         find_sound_name = cellfun(@(s)strfind(exchangetable{2},s),{target_alias},'UniformOutput',false);
         for jj=1:length(find_sound_name{1})
